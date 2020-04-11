@@ -14,13 +14,13 @@ create a folder "c:\temp\mySwaggerDemo\backend\mywebapi"
 
 create a new webapi project
 
-````cmd
+```cmd
 dotnet new webapi -n mywebapi
 ```
 
 open file explorer
 
-````cmd
+```cmd
 explorer .
 ```
 
