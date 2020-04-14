@@ -117,7 +117,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     app.UseHttpsRedirection();
 
     app.UseRouting();
-    // activate cors here: app.UseCors(...): see
+    // activate cors here: app.UseCors(...): see https://github.com/boeschenstein/angular9-dotnetcore3#fix-cors-error
 
     app.UseAuthorization();
 
@@ -252,22 +252,50 @@ On this picture you see
 If you are using my template, you change the existing call of the backend (WebApi):
 
 ``` typescript
-  constructor(http: HttpClient) {
-    http.get<any[]>('https://localhost:5001/weatherforecast').subscribe(result => {
-      console.warn("weatherforecast", result);
-    }, error => console.error(error));
-  }
+// old version
+constructor(http: HttpClient) {
+  http.get<any[]>('https://localhost:5001/weatherforecast').subscribe(result => {
+    console.warn("weatherforecast", result);
+  }, error => console.error(error));
+}
 ```
 
 To make use of the new/generated service:
 
 ``` typescript
+// new version
+import { WeatherForecastService } from './core/backend';
+...
+constructor(service: WeatherForecastService) {
+  service.weatherForecastGet().subscribe(result => {
+    console.warn('weatherforecast', result);
+  }, error => console.error(error));
+}
+```
+
+<details>
+  <summary>See the complete code of AppComponent (app.component.ts) here</summary>
+
+```typescript
+import { Component } from '@angular/core';
+import { WeatherForecastService } from './core/backend';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'MyFrontend';
   constructor(service: WeatherForecastService) {
     service.weatherForecastGet().subscribe(result => {
       console.warn('weatherforecast', result);
     }, error => console.error(error));
   }
-```
+}
+```  
+
+</details>
 
 If you hover over the result variable, you'll realize that this is actually strictly typed "WeatherForecast[]"!
 
@@ -332,20 +360,50 @@ If you can see the array, you just created your first business application in An
 
 ### Whats next
 
+- EF Core (todo)
+- Identity (todo)
+- Authorization (todo)
+- Authentication (todo)
+- Frontend Tooling (todo)
+- Backend Tooling (todo)
+
 ## Additional Information
 
 ### Links
 
+- Setup a nuw ASP.Cor 3.1/Angular 9.1 solution from scratch: <https://github.com/boeschenstein/angular9-dotnetcore3>
 - ASP.NET WebApi: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api>
 - Getting started with Swashbuckle: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle>
 - Swashbuckle: <https://github.com/domaindrivendev/Swashbuckle.AspNetCore>
-- OpenApi Generator: <https://github.com/OpenAPITools/openapi-generator>
-- OpenApi Generator Fork: <https://openapi-generator.tech/>
-- Swagger UI: <https://github.com/swagger-api/swagger-ui>
-- Swagger: <https://swagger.io/specification/>
 - Angular: <https://angular.io/>
 - CORS: <https://docs.microsoft.com/en-us/aspnet/core/security/cors>
-- Other approach: create an install package instead of source code: <https://dotnetthoughts.net/how-to-generate-angular-code-from-openapi-specifications/>
+- OpenAPI specification: https://www.openapis.org/
+
+### OpenAPI flavors
+
+There are 2 version of OpenApi/Swagger generators available.
+
+#### Fork explained
+
+- <https://openapi-generator.tech/docs/fork-qna>
+- <https://smartbear.com/blog/develop/what-is-the-difference-between-swagger-and-openapi/>
+
+#### OpenApi by Community
+
+In this blog, I'm using this community driven solution.
+
+- OpenApi Generator: <https://github.com/OpenAPITools/openapi-generator>
+- OpenApi Generator Fork: <https://openapi-generator.tech/>
+
+#### SmartBear Swagger
+
+- Swagger UI: <https://github.com/swagger-api/swagger-ui>
+- Swagger: <https://swagger.io/specification/>
+
+### Alternative approaches
+
+- NSwag by Rico Suter: <https://blog.rsuter.com/nswag-tutorial-generate-an-angular-2-typescript-client-from-an-existing-asp-net-web-api-web-assembly/>
+- Create an npm package instead of source code: <https://dotnetthoughts.net/how-to-generate-angular-code-from-openapi-specifications/>
 
 ### Current Versions
 

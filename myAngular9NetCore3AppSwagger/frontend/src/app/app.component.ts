@@ -8,11 +8,6 @@ import { WeatherForecastService } from './core/backend';
 })
 export class AppComponent {
   title = 'MyFrontend';
-  // constructor(http: HttpClient) {
-  //   http.get<any[]>('https://localhost:5001/weatherforecast').subscribe(result => {
-  //     console.warn("weatherforecast", result);
-  //   }, error => console.error(error));
-  // }
   constructor(service: WeatherForecastService) {
     service.weatherForecastGet().subscribe(result => {
       console.warn('weatherforecast', result);
