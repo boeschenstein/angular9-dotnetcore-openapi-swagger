@@ -1,8 +1,8 @@
-# Auto-Generate Backend-Services in Angular 9 for .NET Core 3.1 Backend
+# Auto-Generate Angular 9 services (Proxy classes) for accessing .NET Core 3.1 Backend
 
 ## Goal
 
-We want to generate TypeScript classes in Angular frontend to simplify backend access. To achieve this, we have to add OpenApi (Swagger/Swashbuckle) to your .NET Core backend.
+We want to generate TypeScript [service](https://github.com/boeschenstein/definition/tree/master#what-is-a-service) classes for Angular 9 frontend to simplify backend access (aka Proxy classes). To achieve this, we have to add OpenApi (Swagger/Swashbuckle) to your .NET Core backend.
 
 ## Install Swagger/OpenApi in new WebAPI Project
 
@@ -12,7 +12,7 @@ Use your own .NET Core 3.1 WebApi backend.
 
 Alternatively you can clone my sample from here: <https://github.com/boeschenstein/angular9-dotnetcore3>
 
-> If you are new to web development: open cmd in the folder `\frontend` and enter "npm i" to install the node modules.
+> If you are new to web development: download the code, open cmd in the folder `\frontend` and enter "npm i" to install the node modules.
 
 ### Add Swashbuckle to your .NET Core backend
 
@@ -161,7 +161,7 @@ If you don't have it yet, install Java for openapi-generator: <https://java.com/
 
 #### Some information before we generate the code
 
-- According my `\backend\Properties\launchSettings.json`, the endpoint is available by https and http. To avoid issues with https, I decide to use http for generating my the ts files
+- According my `\backend\Properties\launchSettings.json`, the endpoint is available by https and http. To avoid issues with https, I decide to use http for generating the ts files
 
 ``` json
 ...
@@ -358,8 +358,9 @@ export class AppModule { }
 
 If you can see the array, you just created your first business application in Angular 9 and .NET core 3.1 and access backend WebApi using Swagger Generator. Congratulations! Please let me know on twitter ![@patrikbo](https://avatars3.githubusercontent.com/u/50278?s=14&v=4) [@patrikbo](https://twitter.com/patrikbo). Thank you!
 
-### Whats next
+## What's next
 
+- Logging in .NET Core 3.1: 
 - EF Core (todo)
 - Identity (todo)
 - Authorization (todo)
@@ -372,12 +373,13 @@ If you can see the array, you just created your first business application in An
 ### Links
 
 - Setup a nuw ASP.Cor 3.1/Angular 9.1 solution from scratch: <https://github.com/boeschenstein/angular9-dotnetcore3>
-- ASP.NET WebApi: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api>
-- Getting started with Swashbuckle: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle>
+- ASP.NET WebApi: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio>
+- Getting started with Swashbuckle: <https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio>
 - Swashbuckle: <https://github.com/domaindrivendev/Swashbuckle.AspNetCore>
 - Angular: <https://angular.io/>
 - CORS: <https://docs.microsoft.com/en-us/aspnet/core/security/cors>
-- OpenAPI specification: https://www.openapis.org/
+- OpenAPI specification: <https://www.openapis.org/>
+- About me: <https://github.com/boeschenstein>
 
 ### OpenAPI flavors
 
@@ -402,6 +404,7 @@ In this blog, I'm using this community driven solution.
 
 ### Alternative approaches
 
+- AutoRest: <https://github.com/Azure/AutoRest>
 - NSwag by Rico Suter: <https://blog.rsuter.com/nswag-tutorial-generate-an-angular-2-typescript-client-from-an-existing-asp-net-web-api-web-assembly/>
 - Create an npm package instead of source code: <https://dotnetthoughts.net/how-to-generate-angular-code-from-openapi-specifications/>
 
