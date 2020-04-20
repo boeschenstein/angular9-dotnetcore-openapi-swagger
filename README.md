@@ -2,7 +2,7 @@
 
 ## Goal
 
-We want to generate TypeScript [service](https://github.com/boeschenstein/definition/tree/master#what-is-a-service) classes for Angular 9 frontend to simplify backend access (aka Proxy classes). To achieve this, we have to add OpenApi (Swagger/Swashbuckle) to your .NET Core backend.
+We want to generate TypeScript [service](https://github.com/boeschenstein/definition#what-is-a-service) classes for Angular 9 frontend to simplify backend access (aka Proxy classes). To achieve this, we have to add OpenApi (Swagger/Swashbuckle) to your .NET Core backend.
 
 ## Install Swagger/OpenApi in new WebAPI Project
 
