@@ -358,6 +358,17 @@ export class AppModule { }
 
 If you can see the array, you just created your first business application in Angular 9 and .NET core 3.1 and access backend WebApi using Swagger Generator. Congratulations! Please let me know on twitter ![@patrikbo](https://avatars3.githubusercontent.com/u/50278?s=14&v=4) [@patrikbo](https://twitter.com/patrikbo). Thank you!
 
+#### Enums
+
+Send Enums as strings to the client (ASP.NET Core 7, "ng-openapi-gen": "^0.24.0")
+
+```cs
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())); // convert enums to strings for openapi generator
+```
+
 ## What's next
 
 - Logging in .NET Core 3.1: 
