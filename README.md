@@ -360,7 +360,9 @@ If you can see the array, you just created your first business application in An
 
 #### Enums
 
-Send Enums as strings to the client (ASP.NET Core 7, "ng-openapi-gen": "^0.24.0")
+Send Enums as strings (not id's) to the client (ASP.NET Core 7, "ng-openapi-gen": "^0.24.0")
+
+`ng-openapi-gen` now supports `x-enumNames`: Details: <https://github.com/cyclosproject/ng-openapi-gen/issues/40>
 
 ```cs
 builder.Services
