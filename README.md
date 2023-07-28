@@ -145,6 +145,10 @@ Your swagger endpoint should look like this. Please note that your WebApi endpoi
 
 Execute your endpoints in Swagger: In my case, try WeatherForecast api: "Get", "Try it out", "Execute": You should see the data from the API.
 
+### Improve documentation (xml comments)
+
+<https://www.dotnetnakama.com/blog/enriched-web-api-documentation-using-swagger-openapi-in-asp-dotnet-core/>
+
 ## Add OpenApi to Angular 9
 
 ### Install OpenApi Generator
